@@ -1,0 +1,47 @@
+{
+  "dashboard": {
+    "id": null,
+    "uid": "simple_viva",
+    "title": "Simple Viva Dashboard",
+    "tags": [ "templated" ],
+    "timezone": "browser",
+    "schemaVersion": 16,
+    "version": 0,
+    "refresh": "5s",
+    "time": {
+      "from": "now-15m",
+      "to": "now"
+    },
+    "panels": [
+      {
+        "type": "stat",
+        "title": "Application Uptime (Seconds)",
+        "id": 1,
+        "targets": [{"expr": "process_uptime_seconds{application=\"TaskManager\"}"}],
+        "gridPos": {"x": 0, "y": 0, "w": 6, "h": 6}
+      },
+      {
+        "type": "timeseries",
+        "title": "CPU Usage",
+        "id": 2,
+        "targets": [{"expr": "system_cpu_usage{application=\"TaskManager\"}"}],
+        "gridPos": {"x": 6, "y": 0, "w": 18, "h": 6}
+      },
+      {
+        "type": "timeseries",
+        "title": "Heap Memory Used",
+        "id": 3,
+        "targets": [{"expr": "jvm_memory_used_bytes{application=\"TaskManager\", area=\"heap\"}"}],
+        "gridPos": {"x": 0, "y": 6, "w": 12, "h": 8}
+      },
+      {
+        "type": "timeseries",
+        "title": "HTTP Requests Per Second",
+        "id": 4,
+        "targets": [{"expr": "rate(http_server_requests_seconds_count{application=\"TaskManager\"}[1m])"}],
+        "gridPos": {"x": 12, "y": 6, "w": 12, "h": 8}
+      }
+    ]
+  },
+  "overwrite": true
+}
