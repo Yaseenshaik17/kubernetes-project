@@ -1,4 +1,5 @@
-# Scalable & Self-Healing Task Management System
+# Deployment of a Containerized Task Management Application using Kubernetes
+
 
 A production-grade Task Management application built with **Spring Boot** and **MySQL**, containerized with **Docker**, and orchestrated using **Kubernetes** on **AWS EC2**.
 
